@@ -31,7 +31,7 @@ jobs:
     - name: Build
       run: dotnet build $PROJECT_DIR/$PROJECT_NAME --no-restore
     - name: Test
-      run: dotnet package $PROJECT_DIR/$PROJECT_NAME -c Release
+      run: dotnet publish $PROJECT_DIR/$PROJECT_NAME -c Release
     - name: Pack
       run: |
         arrTag=(${GITHUB_REF//\// })

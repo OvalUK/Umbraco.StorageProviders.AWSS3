@@ -8,8 +8,8 @@ on:
     types:
       - published
 env:
-  PROJECT_DIR: '.'
-  PROJECT_NAME: Umbraco.StorageProviders.AWSS3
+  PROJECT_DIR: 'Umbraco.StorageProviders.AWSS3'
+  PROJECT_NAME: 'Umbraco.StorageProviders.AWSS3.csproj'
 
   GITHUB_FEED: https://nuget.pkg.github.com/OvalUK/
   GITHUB_USER: ${{ github.actor }}
@@ -27,17 +27,17 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore $PROJECT_DIR/$PROJECT_NAME
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build $PROJECT_DIR/$PROJECT_NAME --no-restore
     - name: Test
-      run: dotnet package -c Release
+      run: dotnet package $PROJECT_DIR/$PROJECT_NAME -c Release
     - name: Pack
       run: |
         arrTag=(${GITHUB_REF//\// })
         VERSION="${arrTag[2]}"
         VERSION="${VERSION//v}"
-        dotnet pack -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$VERSION $PROJECT_DIR/$PROJECT_NAME.csproj
+        dotnet pack -c Release --no-restore --include-symbols --include-source -p:PackageVersion=$VERSION $PROJECT_DIR/$PROJECT_NAME
     - name: Add GRP Source
       run: dotnet nuget add source https://nuget.pkg.github.com/ovaluk/index.json -n "GRP" -u $GITHUB_USER -p $GITHUB_TOKEN --store-password-in-clear-text
     - name: Publish package to repo

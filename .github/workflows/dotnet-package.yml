@@ -30,7 +30,7 @@ jobs:
       run: dotnet restore $PROJECT_DIR/$PROJECT_NAME
     - name: Build
       run: dotnet build $PROJECT_DIR/$PROJECT_NAME --no-restore
-    - name: Test
+    - name: Publish
       run: dotnet publish $PROJECT_DIR/$PROJECT_NAME -c Release
     - name: Pack
       run: |

@@ -42,7 +42,7 @@ jobs:
       run: dotnet nuget add source https://nuget.pkg.github.com/ovaluk/index.json -n "GRP" -u $GITHUB_USER -p $GITHUB_TOKEN --store-password-in-clear-text
     - name: Publish package to repo
       run: |
-        for f in "./bin/Release/*$VERSION.nupkg"
+        for f in "$PROJECT_DIR/bin/Release/*$VERSION.nupkg"
         do
           dotnet nuget push $f --source "GRP" --skip-duplicate --api-key $GITHUB_TOKEN
         done

@@ -2,6 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Oval.Umbraco.StorageProviders.AWSS3</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Alex White</Authors>
+    <Company>Oval Business Solutions</Company>
+    <Product>Umbraco StorageProviders AWSS3</Product>
+    <AssemblyName>Oval.Umbraco.StorageProviders.AWSS3</AssemblyName>
+    <RootNamespace>Umbraco.StorageProviders.AWSS3</RootNamespace>
+    <RepositoryUrl>https://github.com/OvalUK/Umbraco.StorageProviders.AWSS3.git</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
